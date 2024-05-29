@@ -3,27 +3,27 @@ import "./styles.css";
 const skills = [
   {
     name: "Javascript",
-    emoji: "💪",
+    level: "intermediate",
     backgroundColor: "lightsteelblue",
   },
   {
     name: "HTML+CSS",
-    emoji: "💪",
+    level: "advanced",
     backgroundColor: "lightblue",
   },
   {
     name: "Git and GitHub",
-    emoji: "👍",
+    level: "intermediate",
     backgroundColor: "green",
   },
   {
     name: "React",
-    emoji: "✌️",
+    level: "beginner",
     backgroundColor: "orange",
   },
   {
     name: "Symfony",
-    emoji: "👍",
+    level: "intermediate",
     backgroundColor: "pink",
   },
 ];
@@ -32,7 +32,7 @@ export default function App() {
   return (
     <div className="card">
       <Avatar />
-      <Data skills={skills} />
+      <Data skills={skills} key={name} />
     </div>
   );
 }
@@ -55,11 +55,11 @@ function Data({ skills }) {
         to refresh myself.
       </p>
       <ul className="skill-list">
-        {skills.map((skill, index) => (
+        {skills.map((skill, name) => (
           <Skill
-            key={index}
+            key={name}
             name={skill.name}
-            emoji={skill.emoji}
+            level={skill.level}
             backgroundColor={skill.backgroundColor}
           />
         ))}
@@ -68,11 +68,13 @@ function Data({ skills }) {
   );
 }
 
-function Skill({ name, emoji, backgroundColor }) {
+function Skill({ name, level, backgroundColor }) {
   return (
     <li className="skill" style={{ backgroundColor: backgroundColor }}>
       {name}
-      {emoji}
+      {level === "beginner" && "🐣"}
+      {level === "intermediate" && "👍"}
+      {level === "advanced" && "💪"}
     </li>
   );
 }
