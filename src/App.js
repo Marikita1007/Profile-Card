@@ -12,11 +12,6 @@ const skills = [
     backgroundColor: "lightblue",
   },
   {
-    name: "Web Design",
-    emoji: "✌️",
-    backgroundColor: "yellow",
-  },
-  {
     name: "Git and GitHub",
     emoji: "👍",
     backgroundColor: "green",
